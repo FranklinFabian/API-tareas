@@ -17,7 +17,7 @@ class TareaController extends Controller{
 
     public function store(Request $request){
         $tarea = Tarea::create($request->all());
-        $path = $request->image->store('articles');
+        $path = $request->image->store('tareas');
         $tarea->image = $path;
         $tarea->save();
         return response()->json($tarea,201);
