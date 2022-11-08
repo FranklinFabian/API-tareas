@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TareaController;
+use App\Http\Controllers\UserController;
 use App\Models\Tarea;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,12 +23,24 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/users/{user}', [UserController::class, 'show']);
 
 
+//Route::get('tareas', [TareaController::class,'index']);
+
+//Route::get('tareas/{tarea}', [TareaController::class,'show']);
+
+//Route::post('tareas', [TareaController::class,'store']);
+
+//Route::put('tareas/{tarea}', [TareaController::class,'update']);
+
+//Route::delete('tareas/{tarea}', [TareaController::class,'delete']);
+
+Route::post('register', [UserController::class,'register']);
+Route::post('login', [UserController::class,'authenticate']);
 Route::get('tareas', [TareaController::class,'index']);
 
-Route::get('tareas/{tarea}', [TareaController::class,'show']);
-
-Route::post('tareas', [TareaController::class,'store']);
-
-Route::put('tareas/{tarea}', [TareaController::class,'update']);
-
-Route::delete('tareas/{tarea}', [TareaController::class,'delete']);
+Route::group(['middleware' => ['jwt.verify']], function() {
+    Route::get('user', [UserController::class,'getAuthenticatedUser']);
+    Route::get('tareas/{tarea}', [TareaController::class,'show']);
+    Route::post('tareas', [TareaController::class,'store']);
+    Route::put('tareas/{tarea}', [TareaController::class,'update']);
+    Route::delete('tareas/{tarea}', [TareaController::class,'delete']);
+});
