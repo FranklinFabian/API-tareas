@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tarea extends Model
 {
-    protected $fillable = ['title', 'body'];
+    protected $fillable = ['nombre', 'descripcion'];
 }
