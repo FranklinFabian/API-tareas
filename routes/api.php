@@ -23,16 +23,6 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/users/{user}', [UserController::class, 'show']);
 
 
-//Route::get('tareas', [TareaController::class,'index']);
-
-//Route::get('tareas/{tarea}', [TareaController::class,'show']);
-
-//Route::post('tareas', [TareaController::class,'store']);
-
-//Route::put('tareas/{tarea}', [TareaController::class,'update']);
-
-//Route::delete('tareas/{tarea}', [TareaController::class,'delete']);
-
 Route::post('register', [UserController::class,'register']);
 Route::post('login', [UserController::class,'authenticate']);
 Route::get('tareas', [TareaController::class,'index']);
