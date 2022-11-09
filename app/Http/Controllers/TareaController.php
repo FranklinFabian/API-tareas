@@ -34,7 +34,8 @@ class TareaController extends Controller{
     
     public function check(Request $request, Tarea $tarea){
         $this->authorize('check',$tarea);
-        $tarea->estado_tarea = "Finalizado";
+        $tarea->estado_tarea = 'Finalizado';
+        $tarea->save();
         return response()->json($tarea, 200);;
     }
 

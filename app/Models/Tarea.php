@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Tarea extends Model
 {
-    protected $fillable = ['nombre', 'descripcion', 'image'];
+    protected $fillable = ['nombre', 'descripcion', 'image' ];
 
     public function user()
     {
