@@ -33,5 +33,6 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     //Route::get('tareas/{tarea}', [TareaController::class,'show']);
     Route::post('tareas', [TareaController::class,'store']);
     Route::put('tareas/{tarea}', [TareaController::class,'update']);
+    Route::put('tareas/check/{tarea}', [TareaController::class,'check']);
     Route::delete('tareas/{tarea}', [TareaController::class,'delete']);
 });

@@ -56,6 +56,11 @@ class TareaPolicy
         return $user->id === $tarea->user_id;
     }
 
+    public function check(User $user, Tarea $tarea)
+    {
+        return $user->id === $tarea->user_id;
+    }
+
     /**
      * Determine whether the user can delete the model.
      *

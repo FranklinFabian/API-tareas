@@ -31,6 +31,12 @@ class TareaController extends Controller{
         $tarea->update($request->all());
         return response()->json($tarea, 200);;
     }
+    
+    public function check(Request $request, Tarea $tarea){
+        $this->authorize('check',$tarea);
+        $tarea->estado_tarea = "Finalizado";
+        return response()->json($tarea, 200);;
+    }
 
     public function delete(Request $request, Tarea $tarea){
         $this->authorize('delete',$tarea);
